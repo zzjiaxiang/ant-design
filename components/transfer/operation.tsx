@@ -8,8 +8,8 @@ import type { DirectionType } from '../config-provider';
 
 export interface TransferOperationProps {
   className?: string;
-  leftArrowText?: React.ReactNode;
-  rightArrowText?: React.ReactNode;
+  leftButton?: React.ReactNode;
+  rightButton?: React.ReactNode;
   moveToLeft?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   moveToRight?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   leftActive?: boolean;
@@ -31,95 +31,80 @@ const Operation: React.FC<TransferOperationProps> = (props) => {
     disabled,
     moveToLeft,
     moveToRight,
-    leftArrowText = '',
-    rightArrowText = '',
     leftActive,
     rightActive,
     className,
     style,
     direction,
     oneWay,
+    leftButton = '',
+    rightButton = '',
   } = props;
 
-  // 使用 useCallback 优化渲染函数，避免不必要的重新创建
-  const renderRightArrow = useCallback(() => {
-    // 如果是 React 元素，我们尝试传递必要的属性
-    if (React.isValidElement(rightArrowText)) {
-      const element = rightArrowText as ButtonElementType;
-      const originalOnClick = element.props.onClick;
+  // 通用的箭头渲染函数，处理两种方向的按钮
+  const renderArrow = useCallback(
+    (
+      button: React.ReactNode,
+      moveHandler: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> | undefined,
+      active: boolean | undefined,
+      icon: React.ReactNode,
+    ) => {
+      // 如果是 React 元素，尝试传递必要属性
+      if (React.isValidElement(button)) {
+        const element = button as ButtonElementType;
 
-      // 创建新的 onClick 处理函数，结合原有的和 moveToRight
-      const newOnClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
-        event,
-      ) => {
-        if (originalOnClick) {
-          originalOnClick(event);
-        }
-        if (moveToRight) {
-          moveToRight(event);
-        }
-      };
+        const onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (event) => {
+          element?.props?.onClick?.(event);
+          moveHandler?.(event);
+        };
 
-      // 使用 cloneElement 创建新的元素，传递必要的属性
-      return React.cloneElement(element, {
-        disabled: disabled || !rightActive,
-        onClick: newOnClick,
-      });
-    }
+        return React.cloneElement(element, {
+          disabled: disabled || !active,
+          onClick,
+        });
+      }
 
-    // 如果不是 React 元素，使用默认的 Button
-    return (
-      <Button
-        type="primary"
-        size="small"
-        disabled={disabled || !rightActive}
-        onClick={moveToRight}
-        icon={direction !== 'rtl' ? <RightOutlined /> : <LeftOutlined />}
-      >
-        {rightArrowText}
-      </Button>
-    );
-  }, [disabled, direction, moveToRight, rightActive, rightArrowText]);
+      // 如果不是 React 元素，使用默认的 Button
+      return (
+        <Button
+          type="primary"
+          size="small"
+          disabled={disabled || !active}
+          onClick={(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) =>
+            moveHandler?.(event)
+          }
+          icon={icon}
+        >
+          {button}
+        </Button>
+      );
+    },
+    [disabled],
+  );
 
-  // 使用 useCallback 优化渲染函数，避免不必要的重新创建
-  const renderLeftArrow = useCallback(() => {
-    // 如果是 React 元素，我们尝试传递必要的属性
-    if (React.isValidElement(leftArrowText)) {
-      const element = leftArrowText as ButtonElementType;
-      const originalOnClick = element.props.onClick;
+  // 使用通用函数渲染右箭头
+  const renderRightArrow = useCallback(
+    () =>
+      renderArrow(
+        rightButton,
+        moveToRight,
+        !!rightActive,
+        direction !== 'rtl' ? <RightOutlined /> : <LeftOutlined />,
+      ),
+    [renderArrow, rightButton, moveToRight, rightActive, direction],
+  );
 
-      // 创建新的 onClick 处理函数，结合原有的和 moveToLeft
-      const newOnClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
-        event,
-      ) => {
-        if (originalOnClick) {
-          originalOnClick(event);
-        }
-        if (moveToLeft) {
-          moveToLeft(event);
-        }
-      };
-
-      // 使用 cloneElement 创建新的元素，传递必要的属性
-      return React.cloneElement(element, {
-        disabled: disabled || !leftActive,
-        onClick: newOnClick,
-      });
-    }
-
-    // 如果不是 React 元素，使用默认的 Button
-    return (
-      <Button
-        type="primary"
-        size="small"
-        disabled={disabled || !leftActive}
-        onClick={moveToLeft}
-        icon={direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />}
-      >
-        {leftArrowText}
-      </Button>
-    );
-  }, [disabled, direction, moveToLeft, leftActive, leftArrowText]);
+  // 使用通用函数渲染左箭头
+  const renderLeftArrow = useCallback(
+    () =>
+      renderArrow(
+        leftButton,
+        moveToLeft,
+        !!leftActive,
+        direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />,
+      ),
+    [renderArrow, leftButton, moveToLeft, leftActive, direction],
+  );
 
   return (
     <div className={className} style={style}>

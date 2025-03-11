@@ -468,10 +468,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Operation
         className={`${prefixCls}-operation`}
         rightActive={rightActive}
-        rightArrowText={operations[0]}
+        rightButton={operations[0]}
         moveToRight={moveToRight}
         leftActive={leftActive}
-        leftArrowText={operations[1]}
+        leftButton={operations[1]}
         moveToLeft={moveToLeft}
         style={operationStyle}
         disabled={disabled}
