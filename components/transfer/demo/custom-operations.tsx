@@ -11,8 +11,8 @@ interface RecordType {
 
 const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
   key: i.toString(),
-  title: `内容${i + 1}`,
-  description: `描述${i + 1}`,
+  title: `Content ${i + 1}`,
+  description: `Description ${i + 1}`,
 }));
 
 const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
@@ -23,27 +23,27 @@ const App: React.FC = () => {
   const [loadingRight, setLoadingRight] = useState<boolean>(false);
   const [loadingLeft, setLoadingLeft] = useState<boolean>(false);
 
-  // 处理数据转移
+  // Handle data transfer
   const handleChange: TransferProps['onChange'] = (newTargetKeys, direction, moveKeys) => {
     setTargetKeys(newTargetKeys as string[]);
 
-    // 模拟异步操作
+    // Simulate async operation
     if (direction === 'right') {
       setLoadingRight(true);
       setTimeout(() => {
         setLoadingRight(false);
-        message.success(`已成功添加 ${moveKeys.length} 项到右侧`);
+        message.success(`Successfully added ${moveKeys.length} items to the right`);
       }, 1000);
     } else {
       setLoadingLeft(true);
       setTimeout(() => {
         setLoadingLeft(false);
-        message.success(`已成功添加 ${moveKeys.length} 项到左侧`);
+        message.success(`Successfully added ${moveKeys.length} items to the left`);
       }, 1000);
     }
   };
 
-  // 处理选中项变化
+  // Handle selection change
   const handleSelectChange: TransferProps['onSelectChange'] = (
     sourceSelectedKeys,
     targetSelectedKeys,
@@ -51,31 +51,34 @@ const App: React.FC = () => {
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys] as string[]);
   };
 
-  // 右侧按钮是否可用（有选中的左侧项且不在右侧列表中）
+  // Right button is disabled (no selected items on the left or all selected items are already in the right list)
   const rightButtonDisabled =
     selectedKeys.length === 0 || selectedKeys.every((key) => targetKeys.includes(key));
 
-  // 左侧按钮是否可用（有选中的右侧项）
+  // Left button is disabled (no selected items on the right)
   const leftButtonDisabled =
     selectedKeys.length === 0 || selectedKeys.every((key) => !targetKeys.includes(key));
 
-  // 自定义右侧按钮点击事件
+  // Custom right button click handler
   const handleRightButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // 这里可以添加自定义逻辑，例如显示确认对话框
-    console.log('右侧按钮被点击', event);
-    // Transfer 组件会自动处理数据转移
+    // You can add custom logic here, such as showing a confirmation dialog
+    console.log('Right button clicked', event);
+    // The Transfer component will automatically handle data transfer
   };
 
-  // 自定义左侧按钮点击事件
+  // Custom left button click handler
   const handleLeftButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // 这里可以添加自定义逻辑，例如显示确认对话框
-    console.log('左侧按钮被点击', event);
-    // Transfer 组件会自动处理数据转移
+    // You can add custom logic here, such as showing a confirmation dialog
+    console.log('Left button clicked', event);
+    // The Transfer component will automatically handle data transfer
   };
 
   return (
     <>
-      <p>本示例展示了如何自定义操作按钮，包括处理禁用状态和加载状态。</p>
+      <p>
+        This example demonstrates how to customize operation buttons, including handling disabled
+        and loading states.
+      </p>
       <Transfer
         dataSource={mockData}
         targetKeys={targetKeys}
@@ -84,7 +87,7 @@ const App: React.FC = () => {
         onSelectChange={handleSelectChange}
         render={(item) => item.title}
         operations={[
-          // 自定义右侧按钮（向右转移数据）
+          // Custom right button (transfer data to the right)
           <Button
             key="to-right"
             type="primary"
@@ -93,9 +96,9 @@ const App: React.FC = () => {
             disabled={rightButtonDisabled}
             onClick={handleRightButtonClick}
           >
-            向右
+            To right
           </Button>,
-          // 自定义左侧按钮（向左转移数据）
+          // Custom left button (transfer data to the left)
           <Button
             key="to-left"
             type="primary"
@@ -104,7 +107,7 @@ const App: React.FC = () => {
             disabled={leftButtonDisabled}
             onClick={handleLeftButtonClick}
           >
-            向左
+            To left
           </Button>,
         ]}
       />
