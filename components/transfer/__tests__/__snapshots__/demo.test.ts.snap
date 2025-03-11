@@ -4128,7 +4128,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
 exports[`renders components/transfer/demo/custom-operations.tsx correctly 1`] = `
 Array [
   <p>
-    本示例展示了如何自定义操作按钮，包括处理禁用状态和加载状态。
+    This example demonstrates how to customize operation buttons, including handling disabled and loading states.
   </p>,
   <div
     class="ant-transfer"
@@ -4193,7 +4193,7 @@ Array [
         >
           <li
             class="ant-transfer-list-content-item"
-            title="内容1"
+            title="Content 1"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4213,12 +4213,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容1
+              Content 1
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容2"
+            title="Content 2"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4238,12 +4238,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容2
+              Content 2
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容3"
+            title="Content 3"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4263,12 +4263,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容3
+              Content 3
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容4"
+            title="Content 4"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4288,12 +4288,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容4
+              Content 4
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容5"
+            title="Content 5"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4313,12 +4313,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容5
+              Content 5
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容6"
+            title="Content 6"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4338,12 +4338,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容6
+              Content 6
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容7"
+            title="Content 7"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4363,12 +4363,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容7
+              Content 7
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容8"
+            title="Content 8"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4388,12 +4388,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容8
+              Content 8
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容9"
+            title="Content 9"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4413,12 +4413,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容9
+              Content 9
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容10"
+            title="Content 10"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4438,12 +4438,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容10
+              Content 10
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容11"
+            title="Content 11"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4463,7 +4463,7 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容11
+              Content 11
             </span>
           </li>
         </ul>
@@ -4501,7 +4501,7 @@ Array [
           </span>
         </span>
         <span>
-          向右
+          To right
         </span>
       </button>
       <button
@@ -4533,7 +4533,7 @@ Array [
           </span>
         </span>
         <span>
-          向左
+          To left
         </span>
       </button>
     </div>
@@ -4597,7 +4597,7 @@ Array [
         >
           <li
             class="ant-transfer-list-content-item"
-            title="内容12"
+            title="Content 12"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4617,12 +4617,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容12
+              Content 12
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容13"
+            title="Content 13"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4642,12 +4642,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容13
+              Content 13
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容14"
+            title="Content 14"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4667,12 +4667,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容14
+              Content 14
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容15"
+            title="Content 15"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4692,12 +4692,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容15
+              Content 15
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容16"
+            title="Content 16"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4717,12 +4717,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容16
+              Content 16
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容17"
+            title="Content 17"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4742,12 +4742,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容17
+              Content 17
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容18"
+            title="Content 18"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4767,12 +4767,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容18
+              Content 18
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容19"
+            title="Content 19"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4792,12 +4792,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容19
+              Content 19
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="内容20"
+            title="Content 20"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4817,7 +4817,7 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              内容20
+              Content 20
             </span>
           </li>
         </ul>
