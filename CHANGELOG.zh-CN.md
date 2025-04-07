@@ -19,6 +19,13 @@ tag: vVERSION
 
 - 🆕 Transfer 组件 `operations` 属性支持传入 ReactNode 数组，可以自定义操作按钮。[#53121](https://github.com/ant-design/ant-design/pull/53121) [@afc163](https://github.com/afc163)
 
+## 5.24.6
+
+`2025-04-01`
+
+- 🐞 修复 Modal 通过异步方法显示 loading 态时，点击外侧仍能触发关闭的问题。[#53227](https://github.com/ant-design/ant-design/pull/53227) [@jin19980928](https://github.com/jin19980928)
+- 🐞 修复 Table 在 `size` 为 `small` 时，主题配置 Pagination 无效的问题。[#52829](https://github.com/ant-design/ant-design/pull/52829) [@Can-Chen](https://github.com/Can-Chen)
+
 ## 5.24.5
 
 `2025-03-24`
