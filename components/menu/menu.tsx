@@ -35,8 +35,8 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-type SemanticName = 'root' | 'item' | 'itemIcon' | 'itemContent' | 'popup';
-type PopupName = 'root' | 'item' | 'title';
+type SemanticName = 'root' | 'item' | 'itemIcon' | 'itemContent';
+type PopupName = 'root' | 'listItem' | 'listTitle' | 'list';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalComponents'> {
   theme?: MenuTheme;
@@ -218,7 +218,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           onClick={onItemClick}
           {...passedProps}
           inlineCollapsed={mergedInlineCollapsed}
-          style={{ ...contextStyle, ...style }}
+          style={{ ...mergedStyles?.root, ...contextStyle, ...style }}
           className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}

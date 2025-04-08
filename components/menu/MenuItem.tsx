@@ -99,9 +99,9 @@ const MenuItem: GenericComponent = (props) => {
           [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
         },
         className,
-        classNames?.item,
+        firstLevel ? classNames?.item : classNames?.popup?.listItem,
       )}
-      style={styles?.item}
+      style={firstLevel ? styles?.item : styles?.popup?.listItem}
       title={typeof title === 'string' ? title : undefined}
     >
       {cloneElement(icon, (oriProps) => ({

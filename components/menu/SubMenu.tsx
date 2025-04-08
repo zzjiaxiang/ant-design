@@ -58,17 +58,25 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}
+        classNames={{
+          list: classNames?.popup?.list,
+          listTitle: classNames?.popup?.listTitle,
+        }}
+        styles={{
+          list: styles?.popup?.list,
+          listTitle: styles?.popup?.listTitle,
+        }}
         popupClassName={cls(
           prefixCls,
           popupClassName,
-          contextValue.classNames?.popup?.root,
+          classNames?.popup?.root,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
         popupStyle={{
           zIndex,
           // fix: https://github.com/ant-design/ant-design/issues/47826#issuecomment-2360737237
           ...props.popupStyle,
-          ...contextValue.styles?.popup?.root,
+          ...styles?.popup?.root,
         }}
       />
     </MenuContext.Provider>
