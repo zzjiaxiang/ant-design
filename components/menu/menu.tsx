@@ -51,7 +51,9 @@ export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalCompone
 
   items?: ItemType[];
   classNames?: Partial<
-    Record<SemanticName, string> & { popup?: Partial<Record<PopupName, string>> }
+    Record<SemanticName, string> & {
+      popup?: Partial<Record<PopupName, string>>;
+    }
   >;
   styles?: Partial<
     Record<SemanticName, React.CSSProperties> & {
@@ -188,7 +190,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       mode: mergedMode,
       disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
       classNames: mergedClassNames,
-      styles: mergedStyles,
+      styles: mergedStyles as MenuProps['styles'],
     }),
     [
       prefixCls,
