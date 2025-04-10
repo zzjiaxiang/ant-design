@@ -1,6 +1,6 @@
 import React from 'react';
 import { MailOutlined } from '@ant-design/icons';
-import { Menu, MenuProps } from 'antd';
+import { Menu, MenuProps, Segmented } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -13,7 +13,7 @@ const locales = {
     item: '条目元素',
     itemContent: '条目内容元素',
     itemIcon: '图标元素',
-    'popup.root': '弹出菜单元素',
+    'popup.root': '弹出菜单元素(inline 模式不生效)',
     'popup.list': '弹出菜单列表元素',
     'popup.listItem': '弹出菜单单项元素',
     'popup.listTitle': '弹出菜单标题元素',
@@ -23,7 +23,7 @@ const locales = {
     item: 'Item element',
     itemContent: 'Item content element',
     itemIcon: 'Icon element',
-    'popup.root': 'Popup element',
+    'popup.root': 'Popup element(Inline mode has no effect)',
     'popup.list': 'Popup list element',
     'popup.listItem': 'Popup item element',
     'popup.listTitle': 'Popup title element',
@@ -53,9 +53,11 @@ const items: MenuItem[] = [
   },
 ];
 
+type ModeType = 'horizontal' | 'vertical' | 'inline';
 const Block: React.FC = (props: any) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [current, setCurrent] = React.useState('mail');
+  const [mode, setMode] = React.useState<ModeType>('horizontal');
 
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
@@ -64,10 +66,14 @@ const Block: React.FC = (props: any) => {
 
   return (
     <div ref={divRef}>
+      <Segmented<ModeType>
+        options={['horizontal', 'vertical', 'inline']}
+        onChange={(value) => setMode(value)}
+      />
       <Menu
         onClick={onClick}
         selectedKeys={[current]}
-        mode="horizontal"
+        mode={mode}
         items={items}
         {...props}
         openKeys={['SubMenu']}
