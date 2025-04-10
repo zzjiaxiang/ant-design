@@ -13,20 +13,20 @@ const locales = {
     item: '条目元素',
     itemContent: '条目内容元素',
     itemIcon: '图标元素',
-    popupRoot: '弹出菜单元素',
-    popupList: '弹出菜单列表元素',
-    popupListItem: '弹出菜单单项元素',
-    popupListTitle: '弹出菜单标题元素',
+    'popup.root': '弹出菜单元素',
+    'popup.list': '弹出菜单列表元素',
+    'popup.listItem': '弹出菜单单项元素',
+    'popup.listTitle': '弹出菜单标题元素',
   },
   en: {
     root: 'Root element',
     item: 'Item element',
     itemContent: 'Item content element',
     itemIcon: 'Icon element',
-    popupRoot: 'Popup element',
-    popupList: 'Popup list element',
-    popupListItem: 'Popup item element',
-    popupListTitle: 'Popup title element',
+    'popup.root': 'Popup element',
+    'popup.list': 'Popup list element',
+    'popup.listItem': 'Popup item element',
+    'popup.listTitle': 'Popup title element',
   },
 };
 const items: MenuItem[] = [
@@ -87,10 +87,10 @@ const App: React.FC = () => {
         { name: 'item', desc: locale.item },
         { name: 'itemIcon', desc: locale.itemIcon },
         { name: 'itemContent', desc: locale.itemContent },
-        { name: 'popup.root', desc: locale.popupRoot },
-        { name: 'popup.listTitle', desc: locale.popupListTitle },
-        { name: 'popup.list', desc: locale.popupList },
-        { name: 'popup.listItem', desc: locale.popupListItem },
+        { name: 'popup.root', desc: locale['popup.root'] },
+        { name: 'popup.listTitle', desc: locale['popup.listTitle'] },
+        { name: 'popup.list', desc: locale['popup.list'] },
+        { name: 'popup.listItem', desc: locale['popup.listItem'] },
       ]}
     >
       <Block />
