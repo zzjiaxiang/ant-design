@@ -105,6 +105,11 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const rootPrefixCls = getPrefixCls();
@@ -190,7 +195,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       mode: mergedMode,
       disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
       classNames: mergedClassNames,
-      styles: mergedStyles as MenuProps['styles'],
+      styles: mergedStyles,
     }),
     [
       prefixCls,
