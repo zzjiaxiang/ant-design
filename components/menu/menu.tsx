@@ -36,7 +36,7 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
 };
 
 type SemanticName = 'root' | 'item' | 'itemIcon' | 'itemContent';
-type PopupName = 'root' | 'listItem' | 'listTitle' | 'list';
+type PopupName = 'root' | 'listItem' | 'listTitle' | 'list' | 'listItemContent' | 'listItemIcon';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalComponents'> {
   theme?: MenuTheme;

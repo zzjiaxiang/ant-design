@@ -51,10 +51,14 @@ const MenuItem: GenericComponent = (props) => {
 
     const wrapNode = (
       <span
-        className={cls(`${prefixCls}-title-content`, classNames?.itemContent, {
-          [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
-        })}
-        style={styles?.itemContent}
+        className={cls(
+          `${prefixCls}-title-content`,
+          firstLevel ? classNames?.itemContent : classNames?.popup?.listItemContent,
+          {
+            [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
+          },
+        )}
+        style={firstLevel ? styles?.itemContent : styles?.popup?.listItemContent}
       >
         {children}
       </span>
@@ -105,8 +109,15 @@ const MenuItem: GenericComponent = (props) => {
       title={typeof title === 'string' ? title : undefined}
     >
       {cloneElement(icon, (oriProps) => ({
-        className: cls(oriProps.className, `${prefixCls}-item-icon`, classNames?.itemIcon),
-        style: { ...oriProps.style, ...styles?.itemIcon },
+        className: cls(
+          oriProps.className,
+          `${prefixCls}-item-icon`,
+          firstLevel ? classNames?.itemIcon : classNames?.popup?.listItemIcon,
+        ),
+        style: {
+          ...oriProps.style,
+          ...(firstLevel ? styles?.itemIcon : styles?.popup?.listItemIcon),
+        },
       }))}
       {renderItemChildren(isInlineCollapsed)}
     </Item>

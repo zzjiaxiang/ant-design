@@ -16,6 +16,8 @@ const locales = {
     'popup.root': '弹出菜单元素(inline 模式不生效)',
     'popup.list': '弹出菜单列表元素',
     'popup.listItem': '弹出菜单单项元素',
+    'popup.listItemIcon': '弹出菜单条目图标元素',
+    'popup.listItemContent': '弹出菜单条目内容元素',
     'popup.listTitle': '弹出菜单标题元素',
   },
   en: {
@@ -26,6 +28,8 @@ const locales = {
     'popup.root': 'Popup element(Inline mode has no effect)',
     'popup.list': 'Popup list element',
     'popup.listItem': 'Popup item element',
+    'popup.listItemIcon': 'Popup item icon element',
+    'popup.listItemContent': 'Popup item content element',
     'popup.listTitle': 'Popup title element',
   },
 };
@@ -45,7 +49,7 @@ const items: MenuItem[] = [
         label: 'Item 1',
         type: 'group',
         children: [
-          { key: '1', label: 'Option 1' },
+          { key: '1', label: 'Option 1', icon: <MailOutlined /> },
           { key: '2', label: 'Option 2' },
         ],
       },
@@ -75,6 +79,13 @@ const Block: React.FC = (props: any) => {
         selectedKeys={[current]}
         mode={mode}
         items={items}
+        styles={{
+          popup: {
+            root: {
+              zIndex: 1,
+            },
+          },
+        }}
         {...props}
         openKeys={['SubMenu']}
         getPopupContainer={() => divRef.current}
@@ -97,6 +108,8 @@ const App: React.FC = () => {
         { name: 'popup.listTitle', desc: locale['popup.listTitle'] },
         { name: 'popup.list', desc: locale['popup.list'] },
         { name: 'popup.listItem', desc: locale['popup.listItem'] },
+        { name: 'popup.listItemIcon', desc: locale['popup.listItemIcon'] },
+        { name: 'popup.listItemContent', desc: locale['popup.listItemContent'] },
       ]}
     >
       <Block />
