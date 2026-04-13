@@ -9,12 +9,13 @@ import useLocale from '../../../hooks/useLocale';
 import { tokenMeta } from '../versionToken';
 
 const styles = createStaticStyles(({ cssVar, css }) => {
-  const height = cssVar.controlHeightLG;
-  const dotSize = Number(height) / 5;
+  const { controlHeightLG } = cssVar;
+
+  const dotSize = `calc(${controlHeightLG} / 5)`;
 
   return {
     container: css`
-      background: #fff;
+      background-color: #fff;
       border-radius: ${cssVar.borderRadiusLG};
       overflow: hidden;
     `,
@@ -26,7 +27,7 @@ const styles = createStaticStyles(({ cssVar, css }) => {
 
     col: css`
       flex: 1 1 33%;
-      height: ${height}px;
+      height: ${controlHeightLG};
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,15 +36,15 @@ const styles = createStaticStyles(({ cssVar, css }) => {
     `,
 
     colDark: css`
-      background: #000;
+      background-color: #000;
       color: #fff;
     `,
 
     dot: css`
       border-radius: 100%;
-      width: ${dotSize}px;
-      height: ${dotSize}px;
-      background: #000;
+      width: ${dotSize};
+      height: ${dotSize};
+      background-color: #000;
       box-shadow: 0 0 0 1px rgba(150, 150, 150, 0.25);
     `,
 
@@ -65,7 +66,7 @@ interface ColorCircleProps {
 const ColorCircle: React.FC<ColorCircleProps> = ({ color }) => {
   return (
     <Flex align="center" gap={4}>
-      <div className={styles.dot} style={{ background: color }} />
+      <div className={styles.dot} style={{ backgroundColor: color }} />
       <div className={styles.dotColor}>{color}</div>
     </Flex>
   );
